@@ -12,5 +12,8 @@ app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 
 db.once('open', () => {
-  app.listen(3000)
+  require('./routes')(app)
+
+  app.listen(3000, () => console.log('Listening on port 3000.'))
 })
+
